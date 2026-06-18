@@ -1,0 +1,625 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --bg: #030504;
+  --surface: rgba(14, 18, 16, 0.76);
+  --surface-strong: rgba(20, 27, 23, 0.94);
+  --line: rgba(210, 255, 226, 0.12);
+  --text: #f4fff8;
+  --muted: rgba(244, 255, 248, 0.62);
+  --green: #57ff7a;
+  --green-soft: rgba(87, 255, 122, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 65% 10%, rgba(87, 255, 122, 0.16), transparent 24rem),
+    radial-gradient(circle at 14% 82%, rgba(87, 255, 122, 0.08), transparent 20rem),
+    linear-gradient(140deg, #020303 0%, #07100b 52%, #020303 100%);
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(23rem, 27rem);
+  gap: clamp(1.4rem, 4vw, 4.5rem);
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: clamp(1.25rem, 4vw, 4rem);
+  overflow: hidden;
+}
+
+.brandPanel {
+  max-width: 42rem;
+  animation: rise 720ms ease both;
+}
+
+.brandMark {
+  width: fit-content;
+  margin-bottom: 1.15rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(87, 255, 122, 0.34);
+  background: rgba(87, 255, 122, 0.08);
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.brandPanel h1 {
+  max-width: 12ch;
+  font-size: clamp(3.25rem, 8vw, 6.6rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.brandPanel p {
+  max-width: 34rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.55;
+}
+
+.moodStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 29rem;
+  margin-top: 2rem;
+}
+
+.moodTile {
+  width: 100%;
+  aspect-ratio: 9 / 14;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 48% 30%, rgba(87, 255, 122, 0.24), transparent 28%),
+    linear-gradient(160deg, rgba(244, 255, 248, 0.12), transparent 22%),
+    linear-gradient(180deg, #111812 0%, #030504 100%);
+}
+
+.eliteMood {
+  background:
+    radial-gradient(circle at 44% 24%, rgba(87, 255, 122, 0.22), transparent 24%),
+    linear-gradient(135deg, rgba(244, 255, 248, 0.18), transparent 20%),
+    repeating-linear-gradient(90deg, transparent 0 16px, rgba(87, 255, 122, 0.08) 17px 18px),
+    #040706;
+}
+
+.energyMood {
+  background:
+    radial-gradient(circle at 70% 22%, rgba(87, 255, 122, 0.32), transparent 24%),
+    linear-gradient(145deg, transparent 0 35%, rgba(87, 255, 122, 0.24) 36% 38%, transparent 39%),
+    linear-gradient(180deg, #0b120d, #020303);
+}
+
+.communityMood {
+  background:
+    radial-gradient(circle at 36% 26%, rgba(244, 255, 248, 0.18), transparent 12%),
+    radial-gradient(circle at 64% 42%, rgba(87, 255, 122, 0.22), transparent 14%),
+    radial-gradient(circle at 50% 62%, rgba(244, 255, 248, 0.12), transparent 18%),
+    linear-gradient(180deg, #0a100c, #020303);
+}
+
+.phoneShell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  animation: floatIn 850ms 120ms ease both;
+}
+
+.phoneGlow {
+  position: absolute;
+  inset: 9% 6%;
+  background: rgba(87, 255, 122, 0.22);
+  filter: blur(5rem);
+}
+
+.phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 25.5rem);
+  height: min(52.5rem, calc(100svh - 2rem));
+  min-height: 43rem;
+  overflow: hidden;
+  border: 1px solid rgba(210, 255, 226, 0.18);
+  border-radius: 2.1rem;
+  background:
+    radial-gradient(circle at 52% 18%, rgba(87, 255, 122, 0.18), transparent 22rem),
+    linear-gradient(rgba(2, 4, 3, 0.48), rgba(2, 4, 3, 0.9)),
+    #030504;
+  box-shadow:
+    0 2rem 7rem rgba(0, 0, 0, 0.64),
+    inset 0 0 0 0.45rem rgba(255, 255, 255, 0.03);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem 0.85rem;
+}
+
+.topbar strong {
+  display: block;
+  margin-top: 0.16rem;
+  font-size: 1rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  color: var(--green);
+  font-size: 0.67rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: 1px solid rgba(87, 255, 122, 0.34);
+  border-radius: 999px;
+  background: rgba(87, 255, 122, 0.12);
+  color: var(--green);
+}
+
+.screen {
+  flex: 1;
+  overflow: auto;
+  padding: 0 1rem 6.4rem;
+  scrollbar-width: none;
+}
+
+.screen::-webkit-scrollbar {
+  display: none;
+}
+
+.heroBlock,
+.trainingHero,
+.arena,
+.profileHero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(17, 25, 21, 0.82), rgba(4, 8, 6, 0.66));
+}
+
+.heroBlock {
+  min-height: 18.5rem;
+  padding: 1.25rem;
+  border-radius: 1.35rem;
+}
+
+.heroTexture {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 5, 4, 0.7)),
+    radial-gradient(circle at 74% 14%, rgba(87, 255, 122, 0.34), transparent 10rem),
+    linear-gradient(145deg, transparent 0 44%, rgba(87, 255, 122, 0.2) 45% 47%, transparent 48%),
+    #07100b;
+  opacity: 0.62;
+}
+
+.pulseBadge,
+.heroBlock h2,
+.heroBlock p {
+  position: relative;
+  z-index: 1;
+}
+
+.pulseBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.46rem 0.64rem;
+  border: 1px solid rgba(87, 255, 122, 0.26);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.heroBlock h2 {
+  max-width: 8.5ch;
+  margin-top: 4.8rem;
+  font-size: 2.75rem;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.heroBlock p {
+  max-width: 15rem;
+  margin-top: 0.8rem;
+  color: rgba(244, 255, 248, 0.74);
+  line-height: 1.35;
+}
+
+.module,
+.feed,
+.challengeList {
+  margin-top: 1rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  color: rgba(244, 255, 248, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.sectionHeader small {
+  color: var(--green);
+  font-size: 0.72rem;
+}
+
+.modalityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+}
+
+.modality {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.18rem;
+  padding: 0 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 0.88rem;
+  background: rgba(10, 14, 12, 0.68);
+  color: rgba(244, 255, 248, 0.72);
+}
+
+.modality.selected {
+  border-color: rgba(87, 255, 122, 0.55);
+  background: rgba(87, 255, 122, 0.14);
+  color: var(--text);
+  box-shadow: 0 0 1.6rem rgba(87, 255, 122, 0.08);
+}
+
+.post {
+  margin-top: 0.72rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.05rem;
+  background: rgba(9, 13, 11, 0.72);
+  backdrop-filter: blur(1rem);
+}
+
+.postHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.72rem;
+  align-items: center;
+}
+
+.miniAvatar,
+.avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #57ff7a, #dcffe3);
+  color: #031006;
+  font-weight: 950;
+}
+
+.miniAvatar {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.postHead strong,
+.postHead span {
+  display: block;
+}
+
+.postHead span,
+.post p,
+.profileHero p,
+.arena p {
+  color: var(--muted);
+}
+
+.postHead b {
+  color: var(--green);
+  font-size: 0.95rem;
+}
+
+.post p {
+  margin-top: 0.82rem;
+  line-height: 1.42;
+}
+
+.postActions {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+  color: rgba(244, 255, 248, 0.74);
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.trainingHero,
+.arena,
+.profileHero {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 1.25rem;
+}
+
+.trainingHero {
+  align-items: flex-start;
+}
+
+.trainingHero svg,
+.arena svg {
+  flex: 0 0 auto;
+  color: var(--green);
+  filter: drop-shadow(0 0 0.8rem rgba(87, 255, 122, 0.45));
+}
+
+.trainingHero h2,
+.arena h2,
+.profileHero h2 {
+  margin-top: 0.28rem;
+  font-size: 1.75rem;
+  line-height: 1.02;
+}
+
+.choiceStack {
+  display: grid;
+  gap: 0.68rem;
+}
+
+.trainingChoice {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 3.95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(9, 13, 11, 0.74);
+  color: var(--text);
+  text-align: left;
+}
+
+.trainingChoice span {
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.metricBand {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.58rem;
+  margin-top: 1rem;
+}
+
+.metric {
+  min-height: 5rem;
+  padding: 0.82rem;
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  background: rgba(9, 13, 11, 0.74);
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--green);
+  font-size: 1.42rem;
+}
+
+.arena {
+  display: block;
+  min-height: 14rem;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 5, 0.22), rgba(3, 5, 4, 0.94)),
+    radial-gradient(circle at 30% 25%, rgba(244, 255, 248, 0.16), transparent 3.2rem),
+    radial-gradient(circle at 66% 40%, rgba(87, 255, 122, 0.22), transparent 4.2rem),
+    radial-gradient(circle at 48% 70%, rgba(244, 255, 248, 0.1), transparent 5rem),
+    #07100b;
+}
+
+.arena h2 {
+  max-width: 8ch;
+  margin-top: 3.7rem;
+  font-size: 2.35rem;
+}
+
+.arena p {
+  max-width: 16rem;
+  margin-top: 0.65rem;
+  line-height: 1.38;
+}
+
+.challenge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+  margin-top: 0.72rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.05rem;
+  background: rgba(9, 13, 11, 0.72);
+}
+
+.challenge span {
+  display: block;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.challenge strong {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.ring {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #07100b 54%, transparent 56%),
+    conic-gradient(var(--green) var(--progress), rgba(255, 255, 255, 0.12) 0);
+  color: var(--green);
+}
+
+.profileHero {
+  align-items: center;
+}
+
+.avatar {
+  width: 4.8rem;
+  height: 4.8rem;
+  font-size: 1.18rem;
+}
+
+.tabbar {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+  padding: 0.46rem;
+  border: 1px solid var(--line);
+  border-radius: 1.3rem;
+  background: rgba(2, 5, 4, 0.82);
+  backdrop-filter: blur(1.25rem);
+}
+
+.tab {
+  display: grid;
+  place-items: center;
+  gap: 0.22rem;
+  min-height: 3.35rem;
+  border: 0;
+  border-radius: 1rem;
+  background: transparent;
+  color: rgba(244, 255, 248, 0.54);
+}
+
+.tab span {
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.tab.active {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 860px) {
+  .stage {
+    display: block;
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .brandPanel {
+    margin-bottom: 1.2rem;
+  }
+
+  .brandPanel h1 {
+    max-width: 11ch;
+    font-size: clamp(2.65rem, 16vw, 4.2rem);
+  }
+
+  .brandPanel p {
+    font-size: 0.98rem;
+  }
+
+  .moodStrip {
+    display: none;
+  }
+
+  .phone {
+    width: 100%;
+    height: calc(100svh - 1rem);
+    min-height: 43rem;
+    border-radius: 1.65rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .heroBlock h2 {
+    font-size: 2.35rem;
+  }
+
+  .trainingHero h2,
+  .arena h2,
+  .profileHero h2 {
+    font-size: 1.48rem;
+  }
+}
