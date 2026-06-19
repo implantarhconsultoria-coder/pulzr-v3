@@ -7,53 +7,19 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <main class="stage">
-      <section class="brandPanel" aria-label="Direcao PULZR">
-        <div class="brandMark">PULZR</div>
-        <h1>Comunidade fitness hibrida com energia premium.</h1>
-        <p>
-          V3 mobile-first: social, treino, desafio e perfil em um fluxo unico,
-          sem virar landing page ou painel administrativo.
-        </p>
-        <div class="moodStrip" aria-label="Direcao visual">
-          <div class="moodTile eliteMood" aria-label="Direcao elite"></div>
-          <div class="moodTile energyMood" aria-label="Direcao energia"></div>
-          <div class="moodTile communityMood" aria-label="Direcao comunidade"></div>
-        </div>
-      </section>
-
-      <section class="phoneShell" aria-label="Prototipo mobile PULZR">
-        <div class="phoneGlow"></div>
-        <div class="phone">
-          <header class="topbar">
-            <div>
-              <span class="eyebrow">PULZR CLUB</span>
-              <strong>V3 Prototype</strong>
-            </div>
-            <button class="iconButton" aria-label="Abrir status">PZ</button>
-          </header>
-
-          <div class="screen" id="screen"></div>
-
-          <nav class="tabbar" aria-label="Navegacao principal">
-            <button class="tab active" data-tab="home">
-              <span class="tabIcon">H</span>
-              <span>Pulso</span>
-            </button>
-            <button class="tab" data-tab="train">
-              <span class="tabIcon">+</span>
-              <span>Treino</span>
-            </button>
-            <button class="tab" data-tab="challenges">
-              <span class="tabIcon">A</span>
-              <span>Arena</span>
-            </button>
-            <button class="tab" data-tab="profile">
-              <span class="tabIcon">P</span>
-              <span>Perfil</span>
-            </button>
-          </nav>
-        </div>
+    <main class="app" aria-label="PULZR V3">
+      <div class="ambient ambient-a"></div>
+      <div class="ambient ambient-b"></div>
+      <section class="phone" aria-label="Protótipo mobile PULZR">
+        <div class="notch"></div>
+        <div class="screen" id="screen"></div>
+        <nav class="nav" aria-label="Navegação principal">
+          <button class="nav-btn active" data-screen="feed">⌂<span>Feed</span></button>
+          <button class="nav-btn" data-screen="run">⌕<span>Explorar</span></button>
+          <button class="nav-btn nav-main" data-screen="login">⚡<span>Início</span></button>
+          <button class="nav-btn" data-screen="challenges">♕<span>Desafios</span></button>
+          <button class="nav-btn" data-screen="profile">♙<span>Perfil</span></button>
+        </nav>
       </section>
     </main>
     <script type="module" src="/src/app.js"></script>
