@@ -1,9 +1,37 @@
 {
+  "name": "pulzr-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "main": "expo/AppEntry.js",
   "scripts": {
-    "dev": "python3 -m http.server 5173 --bind 0.0.0.0",
-    "build": "node scripts/check.mjs",
-    "preview": "python3 -m http.server 4173 --bind 0.0.0.0"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build": "expo export --platform web",
+    "preview": "npx serve dist"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@expo/vector-icons": "latest",
+    "@react-native-async-storage/async-storage": "latest",
+    "@react-navigation/bottom-tabs": "latest",
+    "@react-navigation/native": "latest",
+    "@react-navigation/native-stack": "latest",
+    "expo": "latest",
+    "expo-image-picker": "latest",
+    "expo-status-bar": "latest",
+    "firebase": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-native": "latest",
+    "react-native-gesture-handler": "latest",
+    "react-native-reanimated": "latest",
+    "react-native-safe-area-context": "latest",
+    "react-native-screens": "latest",
+    "react-native-web": "latest"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
 }
