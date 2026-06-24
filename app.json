@@ -10,11 +10,7 @@
     "ios": {
       "supportsTablet": false
     },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#050505"
-      }
-    },
+    "android": {},
     "web": {
       "bundler": "metro",
       "output": "static"
