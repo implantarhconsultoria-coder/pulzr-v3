@@ -1,28 +1,24 @@
 # PULZR Mobile
 
-App React Native (Expo) da comunidade fechada fitness PULZR.
+Base atualizada do PULZR com duas frentes no mesmo repositorio:
+
+- `public/`: preview web mobile publicada pela Vercel, usada para validar rapidamente a experiencia visual e os fluxos.
+- `App.js`: base React Native/Expo com login, cadastro, feed, treino, perfil, camera/fotos, compartilhamento e Firebase preparado por variaveis `EXPO_PUBLIC_FIREBASE_*`.
 
 ## Entrega atual
 
 - Login, cadastro e recuperacao de senha preparada.
 - Perfil editavel com foto, nome, telefone, bio e estatisticas.
 - Treinos com exercicios, conclusao, foto via camera e legenda.
-- Feed social com posts de treino, marca d'agua PULZR, curtidas, comentarios e compartilhamento nativo.
-- Aba de desafios, aba Pulso com estatisticas e navegacao inferior.
-- Firebase preparado por variaveis `EXPO_PUBLIC_FIREBASE_*`; enquanto as chaves nao forem configuradas, o app usa persistencia local com AsyncStorage.
+- Feed social com posts de treino, marca d'agua PULZR, curtidas, comentarios e compartilhamento.
+- Aba de desafios, registros de corrida/academia, resultados e navegacao inferior.
 - Visual mobile-first preto, neon amarelo/verde, raio PULZR, cards e botoes alinhados as referencias.
 
-## Rodar localmente
+## Preview local da Vercel
 
 ```bash
 npm install
-npm run start
-```
-
-## Rodar no navegador
-
-```bash
-npm run web
+npm run dev
 ```
 
 ## Build web para Vercel
@@ -31,4 +27,4 @@ npm run web
 npm run build
 ```
 
-A Vercel deve publicar a pasta `dist` gerada pelo Expo.
+A Vercel publica a pasta `dist`, gerada a partir de `public/`.
